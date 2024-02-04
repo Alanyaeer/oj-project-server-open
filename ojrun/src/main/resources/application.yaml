@@ -1,0 +1,63 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: oj-run
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${oj.db.host}:3306/oj-question?characterEncoding=utf-8&useSSL=false
+    username: ${oj.db.name}
+    password: ${oj.db.pw}
+  profiles:
+    active: dev
+  redis:
+    password: ${oj.rd.password}
+    database: 0
+    host: ${oj.rd.host}
+    lettuce:
+      shutdown-timeout: 350000
+      pool:
+        enabled: true
+        min-idle: 1
+  rabbitmq:
+    host: ${oj.mq.host}
+    port: ${oj.mq.port}
+    username: ${oj.mq.username}
+    password: ${oj.mq.pw}
+    virtual-host: ${oj.mq.vh}
+  cloud:
+    nacos:
+      server-addr: ${oj.nacos.ip}
+      discovery:
+        ip: ${oj.nacos.serviceIp}
+        port: ${oj.nacos.servicePort}
+  cache:
+    redis:
+      time-to-live: 350000
+      cache-null-values: true
+      type: redis
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      update-strategy: not_null
+      id-type: ASSIGN_ID
+  mapper-locations: classpath*:/mapper/**/*.xml
+knife4j:
+  enable: true
+  openapi:
+    title: oj-user
+    description: "oj-user"
+    email: 114514@xbz
+    concat: wjhx
+    url: http://vvvv.com
+    version: v1.0.0
+    group:
+      default:
+        group-name: oj-question
+        api-rule: package
+        api-rule-resources:
+          - com.genshin.ojquestion.controller

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ojuser" />
+        <module name="ojcommon" />
+        <module name="ojquestion" />
+        <module name="ojapi" />
+        <module name="ojarticle" />
+        <module name="ojgateway" />
+        <module name="ojrun" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="oj-api" target="17" />
+      <module name="oj-entity" target="17" />
+      <module name="ojapis" target="1.8" />
+      <module name="ojentity" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="oj-api" options="-parameters" />
+      <module name="oj-entity" options="-parameters" />
+      <module name="ojapi" options="-parameters" />
+      <module name="ojapis" options="-parameters" />
+      <module name="ojarticle" options="-parameters" />
+      <module name="ojcommon" options="-parameters" />
+      <module name="ojentity" options="-parameters" />
+      <module name="ojgateway" options="-parameters" />
+      <module name="ojquestion" options="-parameters" />
+      <module name="ojrun" options="-parameters" />
+      <module name="ojuser" options="-parameters" />
+      <module name="onlinejudge" options="-parameters" />
+    </option>
+  </component>
+</project>

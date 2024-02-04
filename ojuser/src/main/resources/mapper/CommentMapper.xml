@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.genshin.ojuser.mapper.CommentMapper">
+
+    <update id="deleteComment">
+        UPDATE`comment` SET `comment`.is_delete = 1 WHERE `comment`.root_comment_id = #{rootCommentId}
+    </update>
+    <select id="queryRootCommentList" resultType="com.genshin.ojcommon.domain.entity.Comment">
+        SELECT id, content, update_time, comment_like_count, user_id FROM `comment`
+        WHERE `comment`.root_comment_id IS NULL AND `comment`.article_id = #{articleId} AND `comment`.article_type = #{articleType} AND is_delete = 0
+        ORDER BY `comment`.comment_like_count DESC
+        LIMIT #{offset}, #{pageSize};
+    </select>
+    <select id="querySonCommentList" resultType="com.genshin.ojcommon.domain.entity.Comment">
+        SELECT id, content, update_time, comment_like_count, root_comment_id, to_comment_id , user_id
+        FROM `comment`
+        WHERE root_comment_id = #{rootId} AND article_type = #{articleType} AND is_delete = 0
+        ORDER BY create_time
+        LIMIT #{offset}, #{pageSize}
+
+    </select>
+    <select id="queryTopThirdCommentList" resultType="com.genshin.ojcommon.domain.entity.Comment">
+        SELECT id, content, create_time, comment_like_count, root_comment_id, to_comment_id , user_id
+        FROM `comment`
+        WHERE root_comment_id = #{rootId} AND article_type = #{articleType} AND is_delete = 0
+        ORDER BY comment_like_count DESC
+        LIMIT 0, 3
+    </select>
+    <select id="queryCommentNumByIdType" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM `comment`
+        WHERE article_id = #{articleId} AND article_type = #{articleType}
+    </select>
+</mapper>

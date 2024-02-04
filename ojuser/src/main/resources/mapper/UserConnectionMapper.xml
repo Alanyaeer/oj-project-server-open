@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.genshin.ojuser.mapper.UserConnectionMapper">
+    <insert id="insertConnection">
+        INSERT INTO `user_connection` values(#{userId}, #{friendId}, #{isNotFollow})
+    </insert>
+    <update id="followFriend">
+        UPDATE `user_connection` set is_delete = #{isNotFollow}
+        WHERE id = #{userId} AND fid = #{friendId}
+    </update>
+    <select id="getFollowStatus" resultType="com.genshin.ojcommon.domain.entity.UserConnection">
+        select is_delete from user_connection WHERE id = #{userId} AND fid = #{friendId}
+    </select>
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(*) from `user_connection` where id = #{userId} AND fid = #{friendId}
+    </select>
+    <select id="getPageFollowFriend" resultType="com.genshin.ojcommon.domain.entity.UserConnection">
+        select id, fid FROM `user_connection`
+        where is_delete = 0 and id = #{userId}
+        limit #{offset}, #{pageSize}
+    </select>
+    <select id="getPageFollowMe" resultType="com.genshin.ojcommon.domain.entity.UserConnection">
+        select id, fid FROM `user_connection`
+        WHERE  is_delete = 0 and fid = #{userId}
+        LIMIT #{offset}, #{pageSize}
+    </select>
+    <select id="getCountOfFollowed" resultType="java.lang.Integer">
+        select count(*) from `user_connection`
+        where fid = #{userId}
+    </select>
+    <select id="getCountOfFollowing" resultType="java.lang.Integer">
+        select count(*) from `user_connection`
+        where id = #{userId}
+    </select>
+</mapper>

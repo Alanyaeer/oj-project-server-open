@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.genshin.ojquestion.mapper.QuestionMapper">
+    <update id="updateLikes">
+        update question set likes = likes + #{add} WHERE id = #{questionId}
+    </update>
+    <update id="updateFavourNum">
+        update question set favour_num = favour_num + #{add} WHERE id = #{questionId}
+    </update>
+    <select id="getRandomProblem" resultType="com.genshin.ojcommon.domain.entity.Question">
+        select id from question order by RAND() LIMIT 1
+    </select>
+<!--    <select id="getProfieSubmitList" resultType="com.genshin.ojcommon.domain.entity.SubmitRecords">-->
+<!--        select questionId, score, createTime from -->
+<!--    </select>-->
+</mapper>

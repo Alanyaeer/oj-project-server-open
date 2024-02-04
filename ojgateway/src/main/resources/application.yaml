@@ -1,0 +1,46 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: oj-gateway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      routes:
+        - id: oj-user
+          uri: lb://oj-user
+          predicates:
+            - Path=/user/**,/manager/**,/profile/**, /api/oj-user/**, /thumbAndFavour/**, /comment/**
+        - id: oj-question
+          uri: lb://oj-question
+          predicates:
+            - Path=/agTemplate/**,/agTepManager/**,/managerProblem/**,/problem/**,/questionAndPictrueCommon/**, /getQuestion/**
+        - id: oj-run
+          uri: lb://oj-run
+          predicates:
+            - Path=/run/**, /api/oj-run/**
+        - id: oj-article
+          uri: lb://oj-article
+          predicates:
+            - Path=/article/**, /api/oj-article/**，
+#    - .antMatchers("/doc.html","/swagger-resources/**", "/webjars/**",
+#      "/v2/**", "/swagger-ui.html/**").permitAll()
+
+    nacos:
+      server-addr: ${oj.nacos.ip}
+      metadata:
+        preserved.heart.beat.interval: 1000 #心跳间隔。时间单位:毫秒。
+        preserved.heart.beat.timeout: 3000 #心跳暂停。时间单位:毫秒。 即服务端6秒收不到客户端心跳，会将该客户端注册的实例设为不健康；
+        preserved.ip.delete.timeout: 6000 #Ip删除超时。时间单位:秒。即服务端9秒收不到客户端心跳，会将该客户端注册的实例删除；
+knife4j:
+  gateway:
+    # ① 第一个配置，开启gateway聚合组件
+    enabled: true
+    # ② 第二行配置，设置聚合模式采用discover服务发现的模式
+    strategy: discover
+    discover:
+      # ③ 第三行配置，开启discover模式
+      enabled: true
+      # ④ 第四行配置，聚合子服务全部为Swagger2规范的文档
+      version: swagger2

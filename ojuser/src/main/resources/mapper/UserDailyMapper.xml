@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.genshin.ojuser.mapper.UserDailyMapper">
+<!--    <update id="UpdateDataForId">-->
+<!--        update `user_daily` WHERE-->
+<!--    </update>-->
+
+    <select id="SelectDataByYear" resultType="com.genshin.ojcommon.domain.entity.UserDaily">
+        SELECT * FROM `user_daily` WHERE YEAR(create_time) = #{year} AND id = #{userId}
+
+    </select>
+
+    <select id="SelectDataForLatestByNow" resultType="com.genshin.ojcommon.domain.entity.UserDaily">
+        SELECT * FROM `user_daily` WHERE create_time BETWEEN CURDATE() - INTERVAL 83 DAY AND CURDATE() AND id = #{userId}
+
+    </select>
+</mapper>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.genshin</groupId>
+    <artifactId>onlinejudge</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>oj-project-server</name>
+    <description>oj-project-server</description>
+    <modules>
+        <module>ojcommon</module>
+        <module>ojuser</module>
+        <module>ojquestion</module>
+        <module>ojgateway</module>
+        <module>ojrun</module>
+        <module>ojapi</module>
+        <module>ojarticle</module>
+    </modules>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <org.projectlombok.version>1.18.20</org.projectlombok.version>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
+        <hutool.version>5.8.11</hutool.version>
+        <!--使用8.0.x 依旧可以用5.7的数据库访问-->
+        <mysql.version>8.0.23</mysql.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <fastjson.version>1.2.33</fastjson.version>
+        <spring-redis-data.version>2.6.0</spring-redis-data.version>
+        <spring-security>2.6.0</spring-security>
+        <Minio-version>8.5.7</Minio-version>
+        <spring-web>2.6.0</spring-web>
+        <minio-version>8.2.2</minio-version>
+        <Amqp-version>2.6.0</Amqp-version>
+        <spring-boot-version>2.6.0</spring-boot-version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-security}</version>
+            </dependency>
+            <!--jwt依赖-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--redis依赖-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-redis-data.version}</version>
+            </dependency>
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- 数据库驱动包管理 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- mybatis plus 管理 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--hutool工具包-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${Minio-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-web}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-web}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${org.projectlombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${Amqp-version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+
+
+        <!-- lombok 管理 -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <!-- 默认关掉单元测试，不用手动关闭了 -->
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

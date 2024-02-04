@@ -1,0 +1,36 @@
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/ojgateway" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/oj-common/pom.xml" />
+        <option value="$PROJECT_DIR$/oj-user/pom.xml" />
+        <option value="$PROJECT_DIR$/ojuser/pom.xml" />
+        <option value="$PROJECT_DIR$/ojcommon/pom.xml" />
+        <option value="$PROJECT_DIR$/ojquestion/pom.xml" />
+        <option value="$PROJECT_DIR$/ojapi/pom.xml" />
+        <option value="$PROJECT_DIR$/ojgateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ojapis/pom.xml" />
+        <option value="$PROJECT_DIR$/ojrun/pom.xml" />
+        <option value="$PROJECT_DIR$/ojarticle/pom.xml" />
+        <option value="$PROJECT_DIR$/oj-entity/pom.xml" />
+        <option value="$PROJECT_DIR$/ojentity/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/oj-common/pom.xml" />
+        <option value="$PROJECT_DIR$/oj-user/pom.xml" />
+        <option value="$PROJECT_DIR$/ojapis/pom.xml" />
+        <option value="$PROJECT_DIR$/ojentity/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

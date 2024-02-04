@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.genshin.ojquestion.mapper.SubmitRecordsMapper">
+
+    <select id="getProfileSubmitList" resultType="com.genshin.ojcommon.domain.vo.SubmitProfileVo">
+        select question_id as id, MAX(create_time) as create_time, count(*) as submit_num from submit_records
+        WHERE pid = #{userId} AND `status` = 2 AND judge_info LIKE CONCAT('%' , '成功' , '%')
+        GROUP BY submit_records.question_id
+
+    </select>
+    <select id="getLatestSubmit" resultType="com.genshin.ojcommon.domain.entity.SubmitRecords">
+        SELECT * from submit_records
+        WHERE pid = #{userId}
+        order by create_time desc limit 1
+
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.genshin.ojquestion.mapper.TagListMapper">
+
+    <select id="getTagName" resultType="java.lang.String">
+        SELECT tag_name
+        FROM `tag_list`
+        WHERE id = #{id}
+    </select>
+    <select id="getAllTag" resultType="com.genshin.ojcommon.domain.entity.TagList">
+        SELECT *
+        from `tag_list`
+    </select>
+</mapper>
