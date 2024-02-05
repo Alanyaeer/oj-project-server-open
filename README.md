@@ -22,3 +22,12 @@
 | ❌docker代码沙箱隔离 |
 | ❌竞赛页实时滚动榜单 |
 
+
+
+## 两键项目打包:fallen_leaf:
+
+* 打开idea后点击oj-project-server
+  * 点击**clean** 
+  * 然后点击**package**就可以自动将所有项目都打好jar包
+
+![image-20240205182517814](https://cdn.jsdelivr.net/gh/Alanyaeer/ImgSummary@master/img/202402051825968.webp)
