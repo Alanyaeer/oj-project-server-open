@@ -5,4 +5,4 @@ COPY xx.jar xx.jar
 # 暴露端口，这个根据自己需求进行更改
 EXPOSE 8080
 # 运行命令
-ENTRYPOINT ["java", "-jar", "/xx.jar"]
+ENTRYPOINT ["java", "-jar", "./xx.jar"]
