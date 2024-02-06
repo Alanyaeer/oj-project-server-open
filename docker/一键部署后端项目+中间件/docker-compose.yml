@@ -1,11 +1,48 @@
 version: '3.8'
 
 services:
+  article:
+    build: 
+     dockerfile: article.service
+    ports:
+      - "8085:8085"
+    networks:
+      - mynetwork  
+  gateway:
+    build: 
+     dockerfile: gateway.service
+    ports:
+      - "10010:10010"
+    networks:
+      - mynetwork  
+  question:
+    build: 
+     dockerfile: question.service
+    ports:
+      - "8082:8082"
+    networks:
+      - mynetwork
+  user:
+    build: 
+     dockerfile: user.service
+    ports:
+      - "8083:8083"
+    networks:
+      - mynetwork    
+  run:
+    build: 
+     dockerfile: run.service
+    ports:
+      - "8086:8086"
+    networks:
+      - mynetwork   
   minio:
     image: minio/minio
     ports:
       - "9000:9000"
       - "40753:40753"
+    networks:
+      - mynetwork
     environment:
       MINIO_ROOT_USER: root
       MINIO_ROOT_PASSWORD: 123456789
@@ -23,6 +60,8 @@ services:
       - /root/redis/conf/redis.conf:/etc/redis/redis.conf
       - /root/redis/data:/data
     command: redis-server /etc/redis/redis.conf --appendonly yes
+    networks:
+      - mynetwork
 
   mysql01:
     image: mysql:8.0
@@ -33,6 +72,8 @@ services:
       - /root/mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+    networks:
+      - mynetwork
 
   nacos1:
     image: nacos/nacos-server
@@ -44,6 +85,8 @@ services:
     environment:
       PREFER_HOST_MODE: hostname
       MODE: standalone
+    networks:
+      - mynetwork
 
   rabbitmq001:
     image: rabbitmq:3.8.16
@@ -53,3 +96,11 @@ services:
     volumes:
       - /etc/rabbitmq/rabbitmq.conf:/root/rabbitmq.conf
     command: ["rabbitmq-server"]
+    networks:
+      - mynetwork
+volumes:
+  minio-data:
+
+networks:
+  mynetwork:
+    driver: bridge
