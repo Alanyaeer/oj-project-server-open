@@ -1,0 +1,12 @@
+# 使用官方的Java基础镜像
+FROM openjdk:8-jdk-alpine
+# 将本地的打包的jar文件复制到容器中
+COPY ojrun-0.0.1-SNAPSHOT.jar ojrun-0.0.1-SNAPSHOT.jar
+# 暴露端口，这个根据自己需求进行更改
+EXPOSE 8086
+# 运行命令
+<<<<<<< HEAD:docker/部署后端项目/dockerfile
+ENTRYPOINT ["java", "-jar", "./xx.jar"]
+=======
+ENTRYPOINT ["java", "-jar", "/ojrun-0.0.1-SNAPSHOT.jar"]
+>>>>>>> b3d4ec62a9bbd57411f9d9554410e5899fa564e6:docker/一键部署后端项目+中间件/run.service

@@ -36,3 +36,4 @@ mysql的root的密码是123456
 
 如果各位想改的话，可以在docker-compose.yml上面进行相应的修改
 
+docker exec -it 47f9e9fdbe03 /bin/bash 

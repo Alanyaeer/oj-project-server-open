@@ -1,0 +1,8 @@
+# 使用官方的Java基础镜像
+FROM openjdk:8-jdk-alpine
+# 将本地的打包的jar文件复制到容器中
+COPY ojarticle-0.0.1-SNAPSHOT.jar ojarticle-0.0.1-SNAPSHOT.jar
+# 暴露端口，这个根据自己需求进行更改
+EXPOSE 8085
+# 运行命令
+ENTRYPOINT ["java", "-jar", "/ojarticle-0.0.1-SNAPSHOT.jar"]
