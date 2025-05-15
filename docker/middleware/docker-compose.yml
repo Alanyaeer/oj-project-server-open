@@ -43,8 +43,9 @@ services:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - "./mysql/mysql-data:/var/lib/mysql"
-      - "./mysql/mysql-config:/etc/mysql/conf.d"
+      - ./mysql/sql:/docker-entrypoint-initdb.d
+    volumes_from:
+      - mysql-job-dbdata
     environment:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: 123456
@@ -55,6 +56,11 @@ services:
     networks:
       - mysql_net
     restart: always  # 可选，可以改为 on-failure
+  mysql-job-dbdata:
+    image: alpine:3.18.2
+    container_name: mysql-job-dbdata
+    volumes:
+      - /var/lib/mysql
   nginx:
     image: nginx:1.27.0
     container_name: nginx
