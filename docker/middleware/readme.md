@@ -1,4 +1,17 @@
-# 一键部署中间件
+# 一键部署中间件 - Windows/Mac
+第一步: 打开idea， 点击docker-compose.yml文件
+![img.png](./../img/img3.png)
+
+第二步：点击左侧的启动按钮
+![img.png](./../img/img3.png)
+如下图所示，容器启动成功，具体情况，可以自行查看容器日志
+![img_1.png](./../img/img_1.png)
+第三步：重新启动Nacos服务
+```
+找到Nacos那一行，点击重新启动，如果你的mysql也是通过docker-compose部署的，这一步必须执行
+```
+![img_2.png](./../img/img_2.png)
+# 一键部署中间件 - Linux
 
 第一步：将本目录里面的docker-compose.yml存入虚拟机中，like this：
 
