@@ -1,3 +1,4 @@
 application-dev.yaml
 application-prod.yaml
 target/
+.idea

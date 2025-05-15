@@ -25,7 +25,9 @@ exit
 
 第四步：重新启动nacos的服务
 ```
-Nacos最初启动的时候，mysql还没有载入sql文件。需要我们重新启动一次
+Nacos最初启动的时候，mysql还没有载入sql文件。需要我们单独启动一次
+
+docker-compose restart nacos
 ```
 ![img.png](./../img/img.png)
 注意：
