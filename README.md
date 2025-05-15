@@ -31,3 +31,7 @@
   * 然后点击**package**就可以自动将所有项目都打好jar包
 
 ![image-20240205182517814](https://cdn.jsdelivr.net/gh/Alanyaeer/ImgSummary@master/img/202402051825968.webp)
+
+
+## 中间件部署流程
+* 打开根目录下面的docker/middleware文件夹， 打开cmd 输入 docker-compose up -d 即可
