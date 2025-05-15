@@ -1,0 +1,25 @@
+oj:
+  db:
+    host: localhost
+    name: root
+    pw: 123456
+  rd:
+    host: localhost
+    password: 6FXZj<:eU[RRGDH%xZ4@%=X5Z
+  nacos:
+    ip: localhost:8848
+  minio:
+    max-file-size: 200MB
+    max-file-request: 200MB
+    end-point: http://localhost:9000
+    accesskey: 6FXZj<:eU[RRGDH%xZ4@%=X5Z
+    secretkey: 6FXZj<:eU[RRGDH%xZ4@%=X5Z
+    bucketName: oj-question-file
+  mq:
+    host: localhost
+    port: 5672
+    username: root
+    pw: root
+    vh: /
+codeSandbox:
+  type: my
